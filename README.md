@@ -1,6 +1,6 @@
 # sqlalchemy-challenge
-# SQLALCHEMY Project
-* * SURFS UP
+# SQLALCHEMY SURFS UP: Project
+
 # Step 1
 * For the Precipitation analysis
 
