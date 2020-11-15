@@ -23,17 +23,20 @@ Base.classes.keys()
 
 #measurement
 Measurement = Base.classes.measurement
-#station
+#Station
 Station = Base.classes.station
 
-#Flask Path
+#app = Flask(__name__)
+
+#Flask Setup
 app = Flask(__name__)
 
+#Flask Path
 @app.route("/")
 def home():
     return (
         f"Welcome to the Hawaii Climate App!<br/>"
-        f"Api Routes : <br/>"
+        f"The Api Routes: <br/>"
         f"/api/v1.0/precipitation<br/>"
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
@@ -66,7 +69,7 @@ def precipitation():
     precipitation_dict.append(pre_dict)
     return jsonify(precipitation_dict)
 
-
+#----------------
 #Stations PART
 
 #output station json_list
@@ -81,12 +84,14 @@ def stations():
     
     all_stations = list(np.ravel(station_q))
     return jsonify(all_stations)
-                        
 
+                        
+#----------------
 # TOBS PART 
 
 # most Active Station
 #also output a JSONIFied dict
+
 @app.route("/api/v1.0/tobs")
 def tobs_station(): 
     session = Session(engine)
@@ -109,7 +114,7 @@ def tobs_station():
     return jsonify(tobs_dict)
                         
 
-    
+#----------------
 # Start Date PART
 
 #make a start date query w/ : max temp, min temp, average temp
@@ -134,12 +139,14 @@ def start_dates(start):
         s_dict['avg_temp'] = avg_temp
         
     starting_dict.append(s_dict)
+    print(f"For the starting date, the results are: {starting_dict}")
     return jsonify(starting_dict)
 
 # Start and End Date PART 
 
 #So, looking the start and end date range, show the max temp, min temp, avg temp
 #also output a JSONIFied dict
+
 @app.route("/api/v1.0/<start>/<end>")
 def start_ends(start, end): 
     
@@ -160,6 +167,7 @@ def start_ends(start, end):
         e_dict['avg_temp'] = avg_temp
         
     date_dict.append(e_dict)
+    print(f"For the start-end dates, the results are: {date_dict}")
     return jsonify(date_dict)
 
 if __name__ == '__main__':
