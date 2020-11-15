@@ -44,6 +44,7 @@ def home():
         f"/api/v1.0/start/end"
     )
 #Precipitation PART
+#Creat a query from latest precipitation datas --- date, prcp values. 
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
@@ -59,8 +60,7 @@ def precipitation():
     
     session.close()
     
-#Return precipitation dictionary, 
-#using values date, prcp
+
     precipitation_dict = []
     for date, prcp in d_precipitation:
         pre_dict = {}
@@ -72,7 +72,7 @@ def precipitation():
 #----------------
 #Stations PART
 
-#output station json_list
+#output stations json_list
 @app.route("/api/v1.0/stations")
 def stations():
     
@@ -89,8 +89,8 @@ def stations():
 #----------------
 # TOBS PART 
 
-# most Active Station
-#also output a JSONIFied dict
+# For most Active Station in the latest year, query date, tobs
+#aoutput a JSONIFied dict
 
 @app.route("/api/v1.0/tobs")
 def tobs_station(): 
@@ -117,9 +117,9 @@ def tobs_station():
 #----------------
 # Start Date PART
 
-#make a start date query w/ : max temp, min temp, average temp
+#make a start date query: max temp, min temp, average temp
 #output max, min , avg temp for all dates>= start date
-#also output a JSONIFied dict
+#output a JSONIFied dict
 
 @app.route("/api/v1.0/<start>")
 def start_dates(start): 
@@ -144,8 +144,8 @@ def start_dates(start):
 
 # Start and End Date PART 
 
-#So, looking the start and end date range, show the max temp, min temp, avg temp
-#also output a JSONIFied dict
+#So,looking the start and end date range, query the max temp, min temp, avg temp
+#output a JSONIFied dict
 
 @app.route("/api/v1.0/<start>/<end>")
 def start_ends(start, end): 
@@ -173,7 +173,7 @@ def start_ends(start, end):
 if __name__ == '__main__':
     app.run(debug=True)
 
-    
+#some parts of the code are not working well, i think
     
     
 
