@@ -1,3 +1,5 @@
+#Hawaii Climate App
+
 import numpy as np
 import pandas as pd
 import datetime as dt
@@ -24,9 +26,10 @@ Measurement = Base.classes.measurement
 #station
 Station = Base.classes.station
 
-#Flask
+#Flask Path
+
 @app.route("/")
-def welcome():
+def home():
     return (
         f"Welcome to the Hawaii Climate App!<br/>"
         f"Api Routes : <br/>"
@@ -62,9 +65,10 @@ def precipitation():
     precipitation_dict.append(pre_dict)
     return jsonify(precipitation_dict)
 
+
 #Stations PART
 
-#return json
+#output station json_list
 @app.route("/api/v1.0/stations")
 def stations():
     
@@ -81,6 +85,7 @@ def stations():
 # TOBS PART 
 
 # most Active Station
+#also output a JSONIFied dict
 @app.route("/api/v1.0/tobs")
 def tobs_station(): 
     session = Session(engine)
@@ -108,6 +113,7 @@ def tobs_station():
 
 #make a start date query w/ : max temp, min temp, average temp
 #output max, min , avg temp for all dates>= start date
+#also output a JSONIFied dict
 
 @app.route("/api/v1.0/<start>")
 def start_dates(start): 
@@ -130,6 +136,19 @@ def start_dates(start):
     return jsonify(starting_dict)
 
 # Start and End Date PART 
+
+#So, looking the start and end date range, show the max temp, min temp, avg temp
+#also output a JSONIFied dict
+@app.route("/api/v1.0/<start>/<end>")
+def start_ends(start, end): 
+    
+    session = Session(engine)
+    
+    date_dict = []
+    
+    session.close()
+    
+
 
     
     
