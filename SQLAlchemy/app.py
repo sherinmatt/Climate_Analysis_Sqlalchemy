@@ -27,6 +27,7 @@ Measurement = Base.classes.measurement
 Station = Base.classes.station
 
 #Flask Path
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -144,9 +145,28 @@ def start_ends(start, end):
     
     session = Session(engine)
     
-    date_dict = []
+    
+    results = session.query(func.max(Measurement.tobs),func.min(Measurement.tobs), func.avg(Measurement.tobs)).\
+        filter(Measurement.date >= start).filter(Measurement.date <= end).all()
     
     session.close()
+    
+    date_dict = []
+    
+    for max_temp, min_temp, avg_temp in results:
+        e_dict = {}
+        e_dict['max_temp'] = max_temp
+        e_dict['min_temp'] = min_temp
+        e_dict['avg_temp'] = avg_temp
+        
+    date_dict.append(e_dict)
+    return jsonify(date_dict)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+    
+    
     
 
 
