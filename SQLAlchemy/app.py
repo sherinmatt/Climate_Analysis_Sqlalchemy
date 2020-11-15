@@ -89,8 +89,8 @@ def stations():
 #----------------
 # TOBS PART 
 
-# For most Active Station in the latest year, query date, tobs
-#aoutput a JSONIFied dict
+# For the most active station in the latest year, query date,tobs
+#output a JSONified dict
 
 @app.route("/api/v1.0/tobs")
 def tobs_station(): 
@@ -104,8 +104,8 @@ def tobs_station():
                         
     session.close()
     
+    
     tobs_dict = []
-#date, tobs
     for date, tobs in most_active_station:
         m_dict = {}
         m_dict['date'] = date
@@ -116,7 +116,6 @@ def tobs_station():
 
 #----------------
 # Start Date PART
-
 #make a start date query: max temp, min temp, average temp
 #output max, min , avg temp for all dates>= start date
 #output a JSONIFied dict
@@ -139,11 +138,11 @@ def start_dates(start):
         s_dict['avg_temp'] = avg_temp
         
     starting_dict.append(s_dict)
-    print(f"For the starting date, the results are: {starting_dict}")
+#print(f"the results are: {starting_dict}")
     return jsonify(starting_dict)
 
+#----------------
 # Start and End Date PART 
-
 #So,looking the start and end date range, query the max temp, min temp, avg temp
 #output a JSONIFied dict
 
@@ -159,7 +158,6 @@ def start_ends(start, end):
     session.close()
     
     date_dict = []
-    
     for max_temp, min_temp, avg_temp in results:
         e_dict = {}
         e_dict['max_temp'] = max_temp
@@ -167,31 +165,13 @@ def start_ends(start, end):
         e_dict['avg_temp'] = avg_temp
         
     date_dict.append(e_dict)
-    print(f"For the start-end dates, the results are: {date_dict}")
+    
+#print(f"the results are: {date_dict}")
     return jsonify(date_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-#some parts of the code are not working well, i think
-    
-    
-
-
-    
-    
-
-
-                        
-                        
-    
-        
-        
-        
-       
-
-
-
+   
 
 
 
