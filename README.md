@@ -1,7 +1,10 @@
 # sqlalchemy-challenge
-#SQLALCHEMY Project
+# SQLALCHEMY Project
 * * SURFS UP
-*Step 1
-*For the Precipitation analysis
+# Step 1
+* For the Precipitation analysis
 
-*Step 2
+* For the Station analysis
+
+# Step 2
+* Hawaii Climate App
