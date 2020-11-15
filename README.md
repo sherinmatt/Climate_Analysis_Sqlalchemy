@@ -2,10 +2,12 @@
 # SQLALCHEMY SURFS UP: Project
 
 # Step 1
+
 For the Precipitation analysis
 *  I worked on building a query using the latest year data, to get the date, prcp values. 
 *  After the analysis, I plotted a diagram using dataframe plot method.
 *  Lastly, I also displayed a precipitation data summary statistics.
+
 For the Station analysis
 * I worked on building a query to find the amount of stations, in a descending order.
 * Also, I found out which was the most active station.
