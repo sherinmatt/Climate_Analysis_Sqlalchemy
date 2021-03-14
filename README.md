@@ -26,7 +26,8 @@
       *  After the analysis, plotted a diagram using dataframe plot method.
 
    ![alt](https://github.com/sherinmatt/sqlalchemy-challenge/blob/main/SQLAlchemy/Images/fig1.png)
-      *  Lastly, also displayed a precipitation data summary statistics.
+     
+     *  Lastly, also displayed a precipitation data summary statistics.
 
     For the Station analysis:
       * Worked on building a query to find the list of stations, in a descending order.
