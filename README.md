@@ -40,7 +40,7 @@
     
     Hawaii Climate App
 
-      * Built a Climate Flask API
+      * Built a Climate Flask App
 
     Routes:
       * (/) - Home or starting page
