@@ -1,4 +1,4 @@
-# sqlalchemy-challenge
+# Climate_Analysis_SQLAlchemy
 
 # SQLALCHEMY SURFS UP
 
