@@ -40,8 +40,7 @@
     
     Hawaii Climate App
 
-      * Built a Climate Flask App
-
+      * Built a Climate Flask Api
     Routes:
       * (/) - Home or starting page
       * (/api/v1.0/precipitation) - Created a query from latest precipitation datas. And, then, outputed all the data in a JSONified dictionary form
