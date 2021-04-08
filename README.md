@@ -31,7 +31,7 @@
 
     For the Station analysis:
       * Worked on building a query to find the list of stations, in a descending order.
-      * Also, found out which was the most active station.
+      * Also, the most active station was: Station USC00519281
       * Later, found out the most active station during the lastest year and created a histogram to showcase the temperature observation datas 
      
    ![alt](https://github.com/sherinmatt/sqlalchemy-challenge/blob/main/SQLAlchemy/Images/fig2.png)
